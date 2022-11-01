@@ -4,17 +4,15 @@ import {
   AmbientLight,
   DirectionalLight,
   Mesh,
-  SphereGeometry,
   MeshToonMaterial,
   PlaneGeometry,
   Color,
   BoxGeometry,
   ConeGeometry,
-  NumberKeyframeTrack,
 } from "three"
-import { renderer, updateRenderer } from "/src/core/renderer"
+import { updateRenderer } from "../core/renderer"
 
-import { gui } from "/src/core/gui"
+import { gui } from "../core/gui"
 
 export const scene = new Scene()
 
@@ -400,14 +398,14 @@ sphereCtrls.addInput(sphere.position, "z", {
   max: 10,
   step: 0.1,
 })
-sphereCtrls.addInput(PARAMS, "color").on("change", (e) => {
+sphereCtrls.addInput(PARAMS, "color").on("change", (e: any) => {
   sphere.material.color = new Color(e.value)
 })
 
   sphereCtrls.addInput(sphere.material, "wireframe")
 }
 
-function createHouse(x:any,y:any,z:any) {
+function createHouse(x:any,_y:any,z:any) {
   const nameHouse = new Mesh(
     new BoxGeometry(0.9, 1, 1),
     new MeshToonMaterial({
